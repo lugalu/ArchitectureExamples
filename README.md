@@ -4,6 +4,7 @@ Project focused on having a bunch of sample apps implementing different mobile a
 ## Plans
 
 Implementend Architetures:
+
 - None
 
 <br>
@@ -19,6 +20,7 @@ Planned architectures:
 
 <br>
 Won't be added:
+
 - None for now
 
 
