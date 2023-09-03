@@ -8,6 +8,7 @@ Implementend Architetures:
 
 <br>
 Planned architectures:
+
 - MVVM (SwiftUI)
 - MVVM-C (SwiftUI)
 - MVC (UIKit)
