@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		091791192AA52A2900D4B2AA /* MVVMExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091791182AA52A2900D4B2AA /* MVVMExampleApp.swift */; };
-		0917911B2AA52A2900D4B2AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0917911A2AA52A2900D4B2AA /* ContentView.swift */; };
+		0917911B2AA52A2900D4B2AA /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0917911A2AA52A2900D4B2AA /* OverviewView.swift */; };
 		0917911D2AA52A2B00D4B2AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0917911C2AA52A2B00D4B2AA /* Assets.xcassets */; };
 		091791202AA52A2B00D4B2AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0917911F2AA52A2B00D4B2AA /* Preview Assets.xcassets */; };
+		09965A382AA698340026381E /* OverViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09965A372AA698340026381E /* OverViewViewModel.swift */; };
+		09965A3A2AA698400026381E /* OverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09965A392AA698400026381E /* OverViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		091791152AA52A2900D4B2AA /* MVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		091791182AA52A2900D4B2AA /* MVVMExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMExampleApp.swift; sourceTree = "<group>"; };
-		0917911A2AA52A2900D4B2AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0917911A2AA52A2900D4B2AA /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		0917911C2AA52A2B00D4B2AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0917911F2AA52A2B00D4B2AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		09965A372AA698340026381E /* OverViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewViewModel.swift; sourceTree = "<group>"; };
+		09965A392AA698400026381E /* OverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +55,8 @@
 		091791172AA52A2900D4B2AA /* MVVMExample */ = {
 			isa = PBXGroup;
 			children = (
-				091791182AA52A2900D4B2AA /* MVVMExampleApp.swift */,
-				0917911A2AA52A2900D4B2AA /* ContentView.swift */,
-				0917911C2AA52A2B00D4B2AA /* Assets.xcassets */,
+				09965A362AA6981E0026381E /* Overview */,
+				091791262AA52ABF00D4B2AA /* Base Files */,
 				0917911E2AA52A2B00D4B2AA /* Preview Content */,
 			);
 			path = MVVMExample;
@@ -65,6 +68,25 @@
 				0917911F2AA52A2B00D4B2AA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		091791262AA52ABF00D4B2AA /* Base Files */ = {
+			isa = PBXGroup;
+			children = (
+				091791182AA52A2900D4B2AA /* MVVMExampleApp.swift */,
+				0917911C2AA52A2B00D4B2AA /* Assets.xcassets */,
+			);
+			path = "Base Files";
+			sourceTree = "<group>";
+		};
+		09965A362AA6981E0026381E /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				0917911A2AA52A2900D4B2AA /* OverviewView.swift */,
+				09965A372AA698340026381E /* OverViewViewModel.swift */,
+				09965A392AA698400026381E /* OverViewModel.swift */,
+			);
+			path = Overview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0917911B2AA52A2900D4B2AA /* ContentView.swift in Sources */,
+				09965A382AA698340026381E /* OverViewViewModel.swift in Sources */,
+				0917911B2AA52A2900D4B2AA /* OverviewView.swift in Sources */,
+				09965A3A2AA698400026381E /* OverViewModel.swift in Sources */,
 				091791192AA52A2900D4B2AA /* MVVMExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,8 +297,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,6 +309,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.architectures.MVVMExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,8 +332,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,6 +344,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lugalu.architectures.MVVMExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
