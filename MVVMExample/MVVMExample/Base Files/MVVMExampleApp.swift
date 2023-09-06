@@ -7,16 +7,23 @@ struct MVVMExampleApp: App {
     @AppStorage("isFirstTime") var isFirstTime = true
     @AppStorage("isShowingAchievement") var isShowingAchievement = false
     
+    init() {
+
+        UITabBar.appearance().backgroundColor = UIColor(named: "TabBarBlue")
+
+   }
+    
     var body: some Scene {
         WindowGroup {
             TabView{
                 OverviewView(viewModel: OverViewViewModel())
                     .tabItem{
                         Label("Overview", systemImage: "heart.fill")
+                        
                     }
-                    .toolbarBackground( Color("TabBarBlue"), for: .automatic)
-                    
             }
+            //.background(Color("DeepRed"))
+            
             .tint(Color("TabBarTint"))
             .sheet(isPresented: $isFirstTime){
                 Text("HeyHo")
@@ -25,5 +32,14 @@ struct MVVMExampleApp: App {
                 Text("HeyHo")
             }            
         }
+    }
+}
+
+extension UITabBarController {
+    open override func viewWillLayoutSubviews() {
+       super.viewWillLayoutSubviews()
+       self.tabBar.layer.masksToBounds = true
+       self.tabBar.layer.cornerRadius = 20 // whatever you want
+       self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner] // only the top right and left corners
     }
 }
