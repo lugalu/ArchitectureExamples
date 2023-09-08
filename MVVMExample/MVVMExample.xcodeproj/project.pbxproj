@@ -11,6 +11,7 @@
 		0917911B2AA52A2900D4B2AA /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0917911A2AA52A2900D4B2AA /* OverviewView.swift */; };
 		0917911D2AA52A2B00D4B2AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0917911C2AA52A2B00D4B2AA /* Assets.xcassets */; };
 		091791202AA52A2B00D4B2AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0917911F2AA52A2B00D4B2AA /* Preview Assets.xcassets */; };
+		09805E3A2AAA9133006464BD /* FAQButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09805E392AAA9133006464BD /* FAQButtons.swift */; };
 		09965A382AA698340026381E /* OverViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09965A372AA698340026381E /* OverViewViewModel.swift */; };
 		09965A3A2AA698400026381E /* OverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09965A392AA698400026381E /* OverViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +22,7 @@
 		0917911A2AA52A2900D4B2AA /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		0917911C2AA52A2B00D4B2AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0917911F2AA52A2B00D4B2AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		09805E392AAA9133006464BD /* FAQButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQButtons.swift; sourceTree = "<group>"; };
 		09965A372AA698340026381E /* OverViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewViewModel.swift; sourceTree = "<group>"; };
 		09965A392AA698400026381E /* OverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,9 +81,18 @@
 			path = "Base Files";
 			sourceTree = "<group>";
 		};
+		09805E382AAA911D006464BD /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				09805E392AAA9133006464BD /* FAQButtons.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		09965A362AA6981E0026381E /* Overview */ = {
 			isa = PBXGroup;
 			children = (
+				09805E382AAA911D006464BD /* SubViews */,
 				0917911A2AA52A2900D4B2AA /* OverviewView.swift */,
 				09965A372AA698340026381E /* OverViewViewModel.swift */,
 				09965A392AA698400026381E /* OverViewModel.swift */,
@@ -160,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09965A382AA698340026381E /* OverViewViewModel.swift in Sources */,
+				09805E3A2AAA9133006464BD /* FAQButtons.swift in Sources */,
 				0917911B2AA52A2900D4B2AA /* OverviewView.swift in Sources */,
 				09965A3A2AA698400026381E /* OverViewModel.swift in Sources */,
 				091791192AA52A2900D4B2AA /* MVVMExampleApp.swift in Sources */,

@@ -40,8 +40,7 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
             .coordinateSpace(name: "Corner")
             
         }
-        
-
+        .tint(.accentColor)
         
     }
     
@@ -80,10 +79,10 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
                     .position(x:proxy.frame(in: CoordinateSpace.named("Corner")).midX, y:proxy.frame(in: CoordinateSpace.named("Corner")).midY)
             }
             HStack{
-                Color.white
-                    .cornerRadius(200)
+                    Ellipse()
+                    .fill(.white)
                     .frame(height: 175)
-                    .offset(x: 2, y: -25)
+                    .offset(x: 50, y: -20)
             }
         }
     }
@@ -98,7 +97,7 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
                 .foregroundColor(Color("RegisterGreen"))
                 .overlay{
                     HStack(spacing: 21){
-                        Text(try! AttributedString(markdown: "Faça o seu **primeiro** registro avisando sobre a sua doação!"))
+                        Text(try! AttributedString(markdown: "Make your **first** register about your donation!"))
                             .font(.system(size: 18, design: .rounded))
                             .foregroundColor(Color("TabBarBlue"))
                         
@@ -123,18 +122,28 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
                 Text("FAQ")
                     .sectionText()
                 
-                Text("See more")
-                    .font(.system(size: 12))
-                    .foregroundColor(Color("RegisterPink"))
+                NavigationLink(destination: Color.black, label: {
+                    Text("See more")
+                        .font(.system(size: 12))
+                        .foregroundColor(Color("RegisterPink"))
+                })
             }
             
             HStack(spacing: 30){
                 Group{
-                    RoundedRectangle(cornerRadius: 233)
-                    RoundedRectangle(cornerRadius: 233)
-                    RoundedRectangle(cornerRadius: 233)
+                    FAQButton(imageName: "theatermasks.fill",isSystemImage: true, text: "Myths or\n Truths") {
+                        OverviewView(viewModel: OverViewViewModel() as! ViewModel)
+                    }
+                    
+                    FAQButton(imageName: "text.bubble.fill",isSystemImage: true, text: "Rules") {
+                        OverviewView(viewModel: OverViewViewModel() as! ViewModel)
+                    }
+                    
+                    FAQButton(imageName: "crown.fill",isSystemImage: true, text: "Benefits") {
+                        OverviewView(viewModel: OverViewViewModel() as! ViewModel)
+                    }
                 }
-                .foregroundColor(Color("LightRed"))
+                
             }
             .frame(height: 136)
         }
@@ -146,8 +155,28 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
             Text("Achievements")
                 .sectionText()
             
-            RoundedRectangle(cornerRadius: 12)
-                .frame(height: 58)
+            NavigationLink(destination: EmptyView()){
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color("LightPink"))
+                    .frame(height: 58)
+                    .overlay(alignment: .leading){
+                        HStack{
+                            Group{
+                                Image(systemName: "sparkles")
+                                    .font(.system(size: 25))
+                                
+                                Text("Discover and win medals")
+                                    .font(.system(size: 18, weight: .semibold))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                            }
+                                .foregroundColor(Color("TabBarBlue"))
+                        }
+                        .padding(.horizontal, 20)
+                    }
+            }
         }
     }
     
