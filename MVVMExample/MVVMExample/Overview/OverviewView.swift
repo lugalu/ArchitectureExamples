@@ -5,6 +5,10 @@ import SwiftUI
 struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
     @ObservedObject var viewModel: ViewModel
        
+    init(viewModel: ViewModel = OverViewViewModel()) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
             
         VStack(alignment: .leading){
@@ -15,16 +19,7 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
       
             
             ZStack{
-                Color("DeepRed")
-                    .cornerRadius(50)
-                    .ignoresSafeArea(edges: [.horizontal, .bottom])
-                    .overlay{
-                        HStack{
-                            Color.clear
-                            
-                            Color("DeepRed")
-                        }
-                    }
+                RoundedBackground(ignoreEdges: [.horizontal,.bottom])
                 
                 VStack(alignment: .leading, spacing: 32){
                     makeRegisterSection()
@@ -92,27 +87,33 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
             Text("Register")
                 .sectionText()
             
-            RoundedRectangle(cornerRadius: 12)
-                .frame(height: 102)
-                .foregroundColor(Color("RegisterGreen"))
-                .overlay{
-                    HStack(spacing: 21){
-                        Text(try! AttributedString(markdown: "Make your **first** register about your donation!"))
-                            .font(.system(size: 18, design: .rounded))
-                            .foregroundColor(Color("TabBarBlue"))
+            NavigationLink(destination: {
+                Text("") //TODO: add destination
+            }) {
+                RoundedRectangle(cornerRadius: 12)
+                    .frame(height: 102)
+                    .foregroundColor(Color("RegisterGreen"))
+                    .overlay{
+                        HStack(spacing: 21){
+                            Text(try! AttributedString(markdown: "Make your **first** register about your donation!"))
+                                .font(.system(size: 18, design: .rounded))
+                                .foregroundColor(Color("TabBarBlue"))
+                                .multilineTextAlignment(.leading)
+                            
+                            Image(systemName: "drop")
+                                .resizable()
+                                .frame(width: 40, height: 60)
+                                .foregroundColor(Color("DeepRed"))
+                            
+                            Image(systemName: "chevron.right")
+                                .padding(.bottom, 40)
+                                .foregroundColor(Color("TabBarBlue"))
+                        }
+                        .padding(.horizontal, 20)
                         
-                        Image(systemName: "drop")
-                            .resizable()
-                            .frame(width: 40, height: 60)
-                            .foregroundColor(Color("DeepRed"))
-                        
-                        Image(systemName: "chevron.right")
-                            .padding(.bottom, 40)
-                            .foregroundColor(Color("TabBarBlue"))
                     }
-                    .padding(.horizontal, 20)
-                    
-                }
+            }
+
         }
     }
     
@@ -132,15 +133,15 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
             HStack(spacing: 30){
                 Group{
                     FAQButton(imageName: "theatermasks.fill",isSystemImage: true, text: "Myths or\n Truths") {
-                        OverviewView(viewModel: OverViewViewModel() as! ViewModel)
+                        Text("")
                     }
                     
                     FAQButton(imageName: "text.bubble.fill",isSystemImage: true, text: "Rules") {
-                        OverviewView(viewModel: OverViewViewModel() as! ViewModel)
+                        Text("")
                     }
                     
                     FAQButton(imageName: "crown.fill",isSystemImage: true, text: "Benefits") {
-                        OverviewView(viewModel: OverViewViewModel() as! ViewModel)
+                        Text("")
                     }
                 }
                 

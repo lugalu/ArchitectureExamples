@@ -15,19 +15,19 @@ struct MVVMExampleApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-                NavigationView{
-                    OverviewView(viewModel: OverViewViewModel())
+                NavigationStack {
+                    OverviewView()
                 }
                 .tabItem{
                     Label("Overview", systemImage: "heart.fill")
                 }
-                
-                .sheet(isPresented: $isFirstTime){
-                    Text("HeyHo")
-                }
-                .sheet(isPresented: $isShowingAchievement){
-                    Text("HeyHo")
-                }
+
+            }
+            .sheet(isPresented: $isFirstTime){
+                Text("HeyHo")
+            }
+            .sheet(isPresented: $isShowingAchievement){
+                Text("HeyHo")
             }
         }
     }
