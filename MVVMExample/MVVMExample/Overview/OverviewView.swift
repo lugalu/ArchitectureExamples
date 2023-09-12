@@ -123,7 +123,7 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
                 Text("FAQ")
                     .sectionText()
                 
-                NavigationLink(destination: Color.black, label: {
+                NavigationLink(destination: FAQView(), label: {
                     Text("See more")
                         .font(.system(size: 12))
                         .foregroundColor(Color("RegisterPink"))
