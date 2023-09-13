@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091065E52AB12A40006747CA /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091065E42AB12A40006747CA /* TipsView.swift */; };
+		091065E72AB12AD1006747CA /* TipsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091065E62AB12AD1006747CA /* TipsViewModel.swift */; };
+		091065E92AB12BD8006747CA /* TipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091065E82AB12BD8006747CA /* TipsModel.swift */; };
+		091065ED2AB12E80006747CA /* DataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091065EC2AB12E80006747CA /* DataServiceProtocol.swift */; };
+		091065F02AB12EF2006747CA /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091065EF2AB12EF2006747CA /* ServiceLocator.swift */; };
+		091065F22AB1317E006747CA /* OfflineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091065F12AB1317E006747CA /* OfflineService.swift */; };
 		091791192AA52A2900D4B2AA /* MVVMExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091791182AA52A2900D4B2AA /* MVVMExampleApp.swift */; };
 		0917911B2AA52A2900D4B2AA /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0917911A2AA52A2900D4B2AA /* OverviewView.swift */; };
 		0917911D2AA52A2B00D4B2AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0917911C2AA52A2B00D4B2AA /* Assets.xcassets */; };
@@ -21,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091065E42AB12A40006747CA /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		091065E62AB12AD1006747CA /* TipsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsViewModel.swift; sourceTree = "<group>"; };
+		091065E82AB12BD8006747CA /* TipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsModel.swift; sourceTree = "<group>"; };
+		091065EC2AB12E80006747CA /* DataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceProtocol.swift; sourceTree = "<group>"; };
+		091065EF2AB12EF2006747CA /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		091065F12AB1317E006747CA /* OfflineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineService.swift; sourceTree = "<group>"; };
 		091791152AA52A2900D4B2AA /* MVVMExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		091791182AA52A2900D4B2AA /* MVVMExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMExampleApp.swift; sourceTree = "<group>"; };
 		0917911A2AA52A2900D4B2AA /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
@@ -46,6 +58,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		091065E32AB12A2F006747CA /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+				091065E42AB12A40006747CA /* TipsView.swift */,
+				091065E62AB12AD1006747CA /* TipsViewModel.swift */,
+				091065E82AB12BD8006747CA /* TipsModel.swift */,
+			);
+			path = Tips;
+			sourceTree = "<group>";
+		};
+		091065EA2AB12E54006747CA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				091065EC2AB12E80006747CA /* DataServiceProtocol.swift */,
+				091065EF2AB12EF2006747CA /* ServiceLocator.swift */,
+				091065F12AB1317E006747CA /* OfflineService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		091065EB2AB12E59006747CA /* DataFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataFiles;
+			sourceTree = "<group>";
+		};
 		0917910C2AA52A2900D4B2AA = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +104,9 @@
 		091791172AA52A2900D4B2AA /* MVVMExample */ = {
 			isa = PBXGroup;
 			children = (
+				091065EB2AB12E59006747CA /* DataFiles */,
+				091065EA2AB12E54006747CA /* Services */,
+				091065E32AB12A2F006747CA /* Tips */,
 				0968D51E2AAE917700FFB14C /* FAQ */,
 				0968D51B2AAE8D8A00FFB14C /* Components */,
 				09965A362AA6981E0026381E /* Overview */,
@@ -198,6 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091065E72AB12AD1006747CA /* TipsViewModel.swift in Sources */,
+				091065ED2AB12E80006747CA /* DataServiceProtocol.swift in Sources */,
+				091065E52AB12A40006747CA /* TipsView.swift in Sources */,
+				091065F22AB1317E006747CA /* OfflineService.swift in Sources */,
 				09965A382AA698340026381E /* OverViewViewModel.swift in Sources */,
 				0968D5222AAE919400FFB14C /* FAQViewModel.swift in Sources */,
 				09805E3A2AAA9133006464BD /* FAQButtons.swift in Sources */,
@@ -205,8 +251,10 @@
 				09965A3A2AA698400026381E /* OverViewModel.swift in Sources */,
 				0968D5202AAE918800FFB14C /* FAQView.swift in Sources */,
 				091791192AA52A2900D4B2AA /* MVVMExampleApp.swift in Sources */,
+				091065F02AB12EF2006747CA /* ServiceLocator.swift in Sources */,
 				0968D5242AAE919E00FFB14C /* FAQModel.swift in Sources */,
 				0968D51D2AAE8DA000FFB14C /* RoundedBackground.swift in Sources */,
+				091065E92AB12BD8006747CA /* TipsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

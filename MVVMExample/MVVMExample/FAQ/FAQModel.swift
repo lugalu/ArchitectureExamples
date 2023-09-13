@@ -2,14 +2,6 @@
 
 import SwiftUI
 
-//enum FAQType: String{
-//    case myths = "Myths"
-//    case rules = "Rules"
-//    case benefits = "Benefits"
-//    case all = "FAQ"
-//}
-//
-//
 class FAQEntity{
    
     var title: String

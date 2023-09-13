@@ -113,10 +113,3 @@ struct FAQView<ViewModel>: View where ViewModel: FAQViewModelProtocol {
 
     }
 }
-
-
-struct TipsView: View{
-    var body: some View{
-        Text("Tips!")
-    }
-}
