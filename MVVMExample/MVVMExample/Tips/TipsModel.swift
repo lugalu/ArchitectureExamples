@@ -5,7 +5,7 @@ import Foundation
 protocol TipsModelProtocol{
     var type: TipsType { get }
     
-    func retrieveTips() -> [TipEntity]
+    func retrieveTips() async -> [TipEntity]
     func setType(_ type: TipsType)
 }
 
@@ -48,8 +48,17 @@ class TipsModel: TipsModelProtocol{
         self.type = type
     }
     
-    func retrieveTips() -> [TipEntity] {
-        return []
+    func retrieveTips() async -> [TipEntity] {
+        do{
+            guard let result = try await ServiceLocator.serviceLocator.retriveDataService()?.retrieveTips(for: self.type) else {
+                return []
+            }
+            
+            return result
+        }catch{
+            return []
+        }
+        
     }
     
     func setType(_ type: TipsType) {
