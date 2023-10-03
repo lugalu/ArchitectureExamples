@@ -21,10 +21,15 @@ struct RoundedBackground<Content: View>: View {
             .cornerRadius(cornerRadius)
             .ignoresSafeArea(edges: ignoresSafeAreaEdges)
             .background{
-                HStack{
-                    Color.clear
-                    
-                    Color(color)
+                VStack{
+                    HStack{
+                        Color.clear
+                        
+                        Color(color)
+                    }
+                    HStack{                        
+                        Color(color)
+                    }
                 }
             }
     }

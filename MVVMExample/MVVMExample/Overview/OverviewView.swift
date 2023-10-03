@@ -133,15 +133,15 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
             HStack(spacing: 30){
                 Group{
                     FAQButton(imageName: "theatermasks.fill",isSystemImage: true, text: "Myths or\n Truths") {
-                        Text("")
+                        TipsView(viewModel: TipsViewModel(type: .myths))
                     }
                     
                     FAQButton(imageName: "text.bubble.fill",isSystemImage: true, text: "Rules") {
-                        Text("")
+                        TipsView(viewModel: TipsViewModel(type: .rules))
                     }
                     
                     FAQButton(imageName: "crown.fill",isSystemImage: true, text: "Benefits") {
-                        Text("")
+                        TipsView(viewModel: TipsViewModel(type: .benefits))
                     }
                 }
                 

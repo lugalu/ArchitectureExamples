@@ -13,11 +13,14 @@ struct FAQView<ViewModel>: View where ViewModel: FAQViewModelProtocol {
     var body: some View {
         VStack(alignment: .center, spacing: 25){
             makeBackground()
-            
+
             ForEach(viewModel.retriveCardsContent(), id: \.title){ card in
-                makeCell(withData: card)
+                HStack{
+                    Spacer()
+                    makeCell(withData: card)
+                }
             }
-            
+               
             Spacer()
             
         }
@@ -98,6 +101,11 @@ struct FAQView<ViewModel>: View where ViewModel: FAQViewModelProtocol {
                 .padding(.leading, 22)
                 .padding(.top, 25)
                 
+            }
+            .overlay(alignment: .topTrailing){
+                Rectangle()
+                    .foregroundColor(Color("LightPink"))
+                    .frame(width: 30, height: 30)
             }
         
         if let content = data.content {
