@@ -5,23 +5,39 @@ import SwiftUI
 struct TipsView<ViewModel: TipsViewModelProtocol>: View {
     
     @ObservedObject var viewModel: ViewModel
+    
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        
+        UITabBar.appearance().barTintColor = UIColor(named: "TabBarBlue")
+        UITabBar.appearance().backgroundColor = UIColor(named: "TabBarBlue")
+        UITabBar.appearance().tintColor = UIColor(named: "TabBarTint")
+        UITabBarItem.appearance().badgeColor = UIColor(named: "TabBarTint")        
+    }
         
     var body: some View {
         ScrollView {
             HStack{ Spacer() }
-            Group {
-                Text("\(viewModel.type.getTitle())")
-                    .font(.system(.largeTitle,weight: .bold))
-                    .foregroundColor(Color("TabBarBlue"))
-                
-                Text("\(viewModel.type.getSubTitle())")
-                    .font(.system(.body,weight: .medium))
-                    .foregroundColor(Color("TabBarBlue"))
-                
-                Text(viewModel.type.getSources())
-                    .font(.system(.caption))
+            
+            VStack (alignment: .leading, spacing: 12) {
+                Group {
+                    Text("\(viewModel.type.getTitle())")
+                        .font(.system(.largeTitle,weight: .bold))
+                        .foregroundColor(Color("TabBarBlue"))
+                    
+                    Text("\(viewModel.type.getSubTitle())")
+                        .font(.system(.body,weight: .medium))
+                        .foregroundColor(Color("TabBarBlue"))
+                    
+                    Text(viewModel.type.getSources())
+                        .font(.system(.caption))
+                }
+                .padding(.horizontal,32)
             }
-            .padding(.horizontal,32)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.bottom, 12)
+
             
             ZStack(alignment: .bottom) {
                 RoundedBackground(ignoreEdges: [.horizontal,.bottom])
@@ -49,5 +65,7 @@ struct TipsView<ViewModel: TipsViewModelProtocol>: View {
                     
             }
         }
+        .navigationTitle(viewModel.type.getTitle())
+        .toolbarColorScheme(.none, for: .tabBar)
     }
 }

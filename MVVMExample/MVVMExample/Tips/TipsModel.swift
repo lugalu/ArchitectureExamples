@@ -61,6 +61,11 @@ enum TipsType: String{
 struct TipEntity: Decodable {
     let title: String
     let content: AttributedString
+    
+    init(title: String, content: String) {
+        self.title = title
+        self.content = (try? AttributedString(markdown: content, options: AttributedString.MarkdownParsingOptions(interpretedSyntax: .inlineOnlyPreservingWhitespace))) ?? AttributedString(content)
+    }
 }
 
 class TipsModel: TipsModelProtocol{

@@ -11,7 +11,9 @@ class OfflineService: DataServiceProtocol{
         case .myths:
             result = [
                 TipEntity(title: "Menstruating people cannot donate blood", content: """
-                MYTH \nThere is no problem with this.
+                **MYTH**
+                
+                There is no problem with this.
                 """),
                 
                 TipEntity(title: "I can't donate blood because I'm LGBTQIAP+", content: """
