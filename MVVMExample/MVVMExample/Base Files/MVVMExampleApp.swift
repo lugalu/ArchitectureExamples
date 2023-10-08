@@ -25,8 +25,8 @@ struct MVVMExampleApp: App {
                         .foregroundColor(Color("TabBarTint"))
                         .tint(Color("TabBarTint"))
                         .symbolRenderingMode(.monochrome)
-                        
                 }
+                .tint(Color.blue)
 
             }
             .toolbarColorScheme(.none, for: .automatic)
@@ -36,6 +36,7 @@ struct MVVMExampleApp: App {
             .sheet(isPresented: $isShowingAchievement){
                 Text("HeyHo")
             }
+            .tint(Color("TabBarTint"))
         }
     }
 }

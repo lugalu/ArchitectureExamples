@@ -23,7 +23,11 @@ struct TipsCell: View {
                     .lineLimit(.max)
                     .multilineTextAlignment(.center)
                     .padding(.all, 5)
-                    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    .background{
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(.regularMaterial)
+                            
+                    }
                     .padding(.horizontal, 30)
                     .padding(.bottom, 30)
                     //.lineLimit(nil)
@@ -45,42 +49,6 @@ struct TipsCell: View {
             
         }
         
-        
-        
-        
-        
-        
-//        let view =
-//        RoundedRectangle(cornerRadius: 16)
-//            .frame(idealWidth: 319,maxWidth: 319, minHeight: 137)
-//            .foregroundColor(Color("LightPink"))
-//            .overlay(alignment: .center){
-//                VStack(alignment: .center, spacing: 16){
-//                    Group{
-//                        Text(title)
-//                            .font(.system(size: 20, weight: .bold))
-//
-//                        Text(message)
-//                            .font(.system(size: 10, weight: .bold))
-//                            .lineLimit(.max)
-//                            .multilineTextAlignment(.center)
-//                            .padding(.all, 5)
-//                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
-//                            .padding(.horizontal, 30)
-//                            //.lineLimit(nil)
-//                    }
-//                    .foregroundColor(Color("TabBarBlue"))
-//                    .multilineTextAlignment(.leading)
-//                }
-//                .padding(.leading, 22)
-//                .padding(.top, 25)
-//
-//            }
-//            .overlay(alignment: .topTrailing){
-//                Rectangle()
-//                    .foregroundColor(Color("LightPink"))
-//                    .frame(width: 30, height: 30)
-//            }
         
         if let content = nextView {
             let navigation =

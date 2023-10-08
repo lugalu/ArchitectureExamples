@@ -32,6 +32,7 @@ struct TipsView<ViewModel: TipsViewModelProtocol>: View {
                     
                     Text(viewModel.type.getSources())
                         .font(.system(.caption))
+                        .tint(Color.blue)
                 }
                 .padding(.horizontal,32)
             }
@@ -66,6 +67,6 @@ struct TipsView<ViewModel: TipsViewModelProtocol>: View {
             }
         }
         .navigationTitle(viewModel.type.getTitle())
-        .toolbarColorScheme(.none, for: .tabBar)
+        .tint(Color("TabBarTint"))
     }
 }

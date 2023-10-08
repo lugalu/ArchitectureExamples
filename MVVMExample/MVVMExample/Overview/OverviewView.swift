@@ -87,32 +87,34 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
             Text("Register")
                 .sectionText()
             
-            NavigationLink(destination: {
-                Text("") //TODO: add destination
-            }) {
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(height: 102)
-                    .foregroundColor(Color("RegisterGreen"))
-                    .overlay{
-                        HStack(spacing: 21){
-                            Text(try! AttributedString(markdown: "Make your **first** register about your donation!"))
-                                .font(.system(size: 18, design: .rounded))
-                                .foregroundColor(Color("TabBarBlue"))
-                                .multilineTextAlignment(.leading)
-                            
-                            Image(systemName: "drop")
-                                .resizable()
-                                .frame(width: 40, height: 60)
-                                .foregroundColor(Color("DeepRed"))
-                            
-                            Image(systemName: "chevron.right")
-                                .padding(.bottom, 40)
-                                .foregroundColor(Color("TabBarBlue"))
-                        }
-                        .padding(.horizontal, 20)
+            RoundedRectangle(cornerRadius: 12)
+                .frame(height: 102)
+                .foregroundColor(Color("RegisterGreen"))
+                .overlay{
+                    HStack(spacing: 21){
+                        Text(try! AttributedString(markdown: "Make your **first** register about your donation!"))
+                            .font(.system(size: 18, design: .rounded))
+                            .foregroundColor(Color("TabBarBlue"))
+                            .multilineTextAlignment(.leading)
                         
+                        Image(systemName: "drop")
+                            .resizable()
+                            .frame(width: 40, height: 60)
+                            .foregroundColor(Color("DeepRed"))
+                        
+                        Image(systemName: "chevron.right")
+                            .padding(.bottom, 40)
+                            .foregroundColor(Color("TabBarBlue"))
                     }
-            }
+                    .padding(.horizontal, 20)
+                    
+                }
+            
+//            NavigationLink(destination: {
+//                Text("") //TODO: add destination
+//            }) {
+//
+//            }
 
         }
     }
@@ -156,7 +158,7 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
             Text("Achievements")
                 .sectionText()
             
-            NavigationLink(destination: EmptyView()){
+//            NavigationLink(destination: EmptyView()){
                 RoundedRectangle(cornerRadius: 12)
                     .fill(Color("LightPink"))
                     .frame(height: 58)
@@ -177,7 +179,7 @@ struct OverviewView<ViewModel>: View where ViewModel: OverViewViewModelProtocol{
                         }
                         .padding(.horizontal, 20)
                     }
-            }
+//            }
         }
     }
     
