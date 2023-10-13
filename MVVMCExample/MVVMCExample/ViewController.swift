@@ -11,6 +11,10 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let test = OnboardingCoordinator(root: self)
+        test.start()
+    
+        
         if !UserDefaults.isFirstTime {
             //show Onboarding
         }

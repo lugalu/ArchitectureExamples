@@ -2,23 +2,40 @@
 
 import UIKit
 
-class OnbordingViewController: UIPageViewController {
+class OnboardingViewController: UIViewController {
+    
+    var viewModel: OnboardingViewModelProtocol? = nil
 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setup()
     }
-    */
-
+    
+    
+    func setup(){
+       let test = CustomButton()
+        let action = UIAction(){ _ in
+            print("hey ho")
+        }
+        
+        test.setup(title: "Done", actionState: .touchUpInside, action: action)
+        
+        view.addSubview(test)
+        
+        test.translatesAutoresizingMaskIntoConstraints = false
+        
+        let constraints = [
+            test.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            test.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
+    }   
 }

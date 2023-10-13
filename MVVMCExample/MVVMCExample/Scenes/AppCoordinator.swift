@@ -6,7 +6,7 @@ class AppCoordinator: Coordinator{
     
     let window: UIWindow?
     
-    lazy var root: UINavigationController = UINavigationController(rootViewController: UIViewController())
+    lazy var root: UINavigationController = UINavigationController(rootViewController: ViewController())
     
     init(window: UIWindow?) {
         self.window = window
