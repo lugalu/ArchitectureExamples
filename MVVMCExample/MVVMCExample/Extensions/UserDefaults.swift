@@ -13,4 +13,16 @@ extension UserDefaults{
             UserDefaults.standard.set(newValue, forKey: "isFirstTime")
         }
     }
+    
+    static var username: String{
+        get{
+            return UserDefaults.standard.string(forKey: "Username") ?? "User"
+        }
+        
+        set{
+            UserDefaults.standard.set(newValue, forKey: "Username")
+        }
+    }
+    
+    
 }

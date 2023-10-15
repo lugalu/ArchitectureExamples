@@ -4,13 +4,13 @@ import UIKit
 
 class OnboardingCoordinator: Coordinator{
     
-    
     let root: UIViewController
     
     let rootPageViewController = OnboardingViewController()
     
-    let viewModel: OnboardingViewModelProtocol = {
-        return OnboardingViewModel()
+    lazy var viewModel: OnboardingViewModelProtocol = {
+        let vm = OnboardingViewModel(delegate: self)
+        return vm
     }()
     
     
@@ -20,7 +20,7 @@ class OnboardingCoordinator: Coordinator{
     
     func start() {
         rootPageViewController.viewModel = viewModel
-        
+        rootPageViewController.modalPresentationStyle = .overFullScreen
         root.present(rootPageViewController, animated: true)
     }
     
