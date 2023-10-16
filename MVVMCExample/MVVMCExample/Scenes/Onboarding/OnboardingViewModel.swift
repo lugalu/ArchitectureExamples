@@ -8,7 +8,7 @@ protocol OnboardingViewModelProtocol{
 }
 
 class OnboardingViewModel: OnboardingViewModelProtocol{
-    weak var delegate: Coordinator?
+    var delegate: Coordinator?
     
     init(delegate: Coordinator? = nil) {
         self.delegate = delegate
@@ -21,5 +21,4 @@ class OnboardingViewModel: OnboardingViewModelProtocol{
     func close() {
         self.delegate?.finish()
     }
-    
 }

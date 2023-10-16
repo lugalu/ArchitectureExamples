@@ -26,6 +26,10 @@ extension UIColor{
     static var ultraLightPurple: UIColor? {
         return UIColor(named: "UltraLightPurple")
     }
+    
+    static var iconPink: UIColor? {
+        return UIColor(named: "IconPink")
+    }
 
 
 

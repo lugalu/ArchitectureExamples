@@ -8,6 +8,12 @@ class OnboardingCoordinator: Coordinator{
     
     let rootPageViewController = OnboardingViewController()
     
+    let modalViewController: ModalViewController = {
+        let modal = ModalViewController()
+        modal.modalPresentationStyle = .automatic
+        return modal
+    }()
+    
     lazy var viewModel: OnboardingViewModelProtocol = {
         let vm = OnboardingViewModel(delegate: self)
         return vm
@@ -21,10 +27,14 @@ class OnboardingCoordinator: Coordinator{
     func start() {
         rootPageViewController.viewModel = viewModel
         rootPageViewController.modalPresentationStyle = .overFullScreen
-        root.present(rootPageViewController, animated: true)
+        root.present(rootPageViewController, animated: true){
+            self.rootPageViewController.present(self.modalViewController, animated: true)
+        }
+        
     }
     
     func finish() {
+        UserDefaults.isFirstTime = true
         rootPageViewController.dismiss(animated: true)
     }
 }

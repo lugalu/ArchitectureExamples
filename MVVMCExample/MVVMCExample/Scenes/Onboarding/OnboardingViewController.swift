@@ -5,6 +5,25 @@ import UIKit
 class OnboardingViewController: UIViewController, ViewProtocol {
     
     var viewModel: OnboardingViewModelProtocol? = nil
+    private var tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    
+    lazy var skipButton: UIButton = {
+        let button = UIButton(configuration: .plain())
+        
+        let action = UIAction(){ _ in
+            self.viewModel?.close()
+        }
+        
+        button.addAction(action, for: .touchUpInside)
+        
+        button.setTitle("Skip", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+        button.setTitleColor(.label, for: .normal)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
     
     lazy var headline: UILabel = {
         let label = UILabel()
@@ -47,6 +66,7 @@ class OnboardingViewController: UIViewController, ViewProtocol {
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.placeholder = "User"
         textfield.delegate = self
+        textfield.returnKeyType = .done
         
         view.addSubview(textfield)
         
@@ -81,35 +101,68 @@ class OnboardingViewController: UIViewController, ViewProtocol {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func setup(){
         applySystemBackground()
         addViews()
         configureConstraints()
+        addTapGesture()
+    }
+    
+    
+    func addTapGesture(){
+        tapGesture.addTarget(self, action: #selector(onTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func onTap(){
+        nameTextfield.endEditing(true)
     }
     
 }
 
 extension OnboardingViewController: UITextFieldDelegate{
-    //TODO: implement this!
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newName = textField.text, !newName.isEmpty else { return }
+        viewModel?.save(name: newName)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
 }
 
 
 extension OnboardingViewController{
     
     func addViews(){
+        view.addSubview(skipButton)
         view.addSubview(headline)
         view.addSubview(subtitle)
         view.addSubview(nameTextfield)
         view.addSubview(doneButton)
-
     }
     
     func configureConstraints() {
+        addSkipButton()
         addHeadlineConstraints()
         addSubtitleConstraints()
         addNameTextfieldConstraints()
         addDoneButtonConstraints()
         
+    }
+    
+    private func addSkipButton(){
+        let constraints = [
+            skipButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 44),
+            skipButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+        ]
+        NSLayoutConstraint.activate(constraints)
     }
     
     private func addHeadlineConstraints(){

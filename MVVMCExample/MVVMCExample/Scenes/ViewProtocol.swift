@@ -7,3 +7,10 @@ protocol ViewProtocol: UIResponder{
     func addViews()
     func configureConstraints()
 }
+
+extension ViewProtocol{
+    func setup(){
+        addViews()
+        configureConstraints()
+    }
+}
