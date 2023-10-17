@@ -35,7 +35,9 @@ class OnboardingCoordinator: Coordinator{
     
     func finish() {
         UserDefaults.isFirstTime = true
-        rootPageViewController.dismiss(animated: true)
+        rootPageViewController.dismiss(animated: true){
+            NotificationCenter.default.post(name: .didReturnFromOnboarding, object: nil)
+        }
     }
 }
 
