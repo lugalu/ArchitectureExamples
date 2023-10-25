@@ -7,7 +7,7 @@ class LabelCluster: UIView, ViewProtocol {
     
     lazy var leftLabel: UILabel = {
         let label = UILabel()
-        label.text = "LoreIpsum"
+        label.text = "10"
         label.font = .systemFont(ofSize: 44, weight: .medium)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,7 +17,7 @@ class LabelCluster: UIView, ViewProtocol {
 
     lazy var rightUpLabel: UILabel = {
         let label = UILabel()
-        label.text = "LoreIpsum"
+        label.text = "Wed"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +26,7 @@ class LabelCluster: UIView, ViewProtocol {
     
     lazy var rightDownLabel: UILabel = {
         let label = UILabel()
-        label.text = "LoreIpsum"
+        label.text = "Sep 2021"
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,13 +60,14 @@ class LabelCluster: UIView, ViewProtocol {
     func configureConstraints() {
         addLeftLabelConstraints()
         addRightUpLabelConstraints()
+        addRightDownLabelConstraints()
     }
     
     private func addLeftLabelConstraints() {
         let constraints = [
             leftLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             leftLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            leftLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            leftLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ]
         
         NSLayoutConstraint.activate(constraints)
@@ -74,8 +75,8 @@ class LabelCluster: UIView, ViewProtocol {
     
     private func addRightUpLabelConstraints() {
         let constraints = [
-            rightUpLabel.leadingAnchor.constraint(equalTo: leftLabel.trailingAnchor),
-            rightUpLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            rightUpLabel.leadingAnchor.constraint(equalTo: leftLabel.trailingAnchor, constant: 8),
+            rightUpLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 11),
             rightUpLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ]
         
@@ -84,9 +85,9 @@ class LabelCluster: UIView, ViewProtocol {
     
     private func addRightDownLabelConstraints() {
         let constraints = [
-            rightDownLabel.leadingAnchor.constraint(equalTo: leftLabel.trailingAnchor),
+            rightDownLabel.leadingAnchor.constraint(equalTo: leftLabel.trailingAnchor, constant: 8),
             rightDownLabel.topAnchor.constraint(equalTo: rightUpLabel.bottomAnchor),
-            rightDownLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            rightDownLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -14),
             rightDownLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ]
     

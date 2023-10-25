@@ -8,6 +8,7 @@ protocol WelcomeViewModelProtocol {
     
     func getCellIdentifer() -> String
     func getCellType() -> UITableViewCell.Type
+    
 }
 
 
@@ -30,7 +31,7 @@ class WelcomeViewModel: WelcomeViewModelProtocol {
     func getCellType() -> UITableViewCell.Type {
         return welcomeTableController.type
     }
-    
+
 }
 
 
