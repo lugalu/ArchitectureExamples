@@ -75,6 +75,15 @@ class WelcomeViewController: UIViewController {
         table.register(viewModel.getCellType(), forCellReuseIdentifier: viewModel.getCellIdentifer())
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
+        
+        table.layer.maskedCorners = .layerMinXMinYCorner
+        table.layer.cornerRadius = 32
+        table.sectionIndexColor = .black
+        table.insetsContentViewsToSafeArea = true
+        table.insetsLayoutMarginsFromSafeArea = true
+        table.contentOffset.y = 20
+        
+
         return table
         
     }()
@@ -97,9 +106,15 @@ class WelcomeViewController: UIViewController {
             rect = rect.union(view.frame)
         }
         scroll.contentSize = CGSize(width: contentRect.width, height: contentRect.height)
-        scroll.frame = view.frame
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+//        table.contentInsetAdjustmentBehavior = .always
+//        table.adjustedContentInsetDidChange()
+    }
     
     func setup() {
         addViews()

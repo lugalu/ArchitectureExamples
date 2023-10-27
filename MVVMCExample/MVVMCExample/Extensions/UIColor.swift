@@ -31,7 +31,9 @@ extension UIColor{
         return UIColor(named: "IconPink")
     }
 
-
+    static var ultraDarkPink: UIColor? {
+        return UIColor(named: "UltraDarkPink")
+    }
 
     
 }
