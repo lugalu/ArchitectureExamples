@@ -76,12 +76,15 @@ class WelcomeViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.backgroundColor = .white
         
-        table.layer.maskedCorners = .layerMinXMinYCorner
+        table.layer.maskedCorners = CornerToMask.topLeft.getMask()
         table.layer.cornerRadius = 32
         table.sectionIndexColor = .black
         table.insetsContentViewsToSafeArea = true
         table.insetsLayoutMarginsFromSafeArea = true
-        table.contentOffset.y = 20
+        table.rowHeight = 72
+        table.separatorInset = UIEdgeInsets(top: 0, left: 70, bottom: 0, right: 70)
+        table.separatorColor = .slightPink
+        
         
 
         return table
@@ -108,13 +111,6 @@ class WelcomeViewController: UIViewController {
         scroll.contentSize = CGSize(width: contentRect.width, height: contentRect.height)
     }
     
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-//        table.contentInsetAdjustmentBehavior = .always
-//        table.adjustedContentInsetDidChange()
-    }
     
     func setup() {
         addViews()

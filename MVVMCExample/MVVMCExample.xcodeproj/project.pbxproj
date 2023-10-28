@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0916E7E12AEC843E008C2AEA /* CornerToMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0916E7E02AEC843E008C2AEA /* CornerToMask.swift */; };
+		0916E7E32AEC86D2008C2AEA /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0916E7E22AEC86D2008C2AEA /* WelcomeCell.swift */; };
 		096286442AD9ED5D00B1508F /* OnboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096286432AD9ED5D00B1508F /* OnboardCoordinator.swift */; };
 		096286472ADA011600B1508F /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096286462ADA011600B1508F /* CustomButton.swift */; };
 		096286492ADA033000B1508F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096286482ADA033000B1508F /* UIColor.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0916E7E02AEC843E008C2AEA /* CornerToMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerToMask.swift; sourceTree = "<group>"; };
+		0916E7E22AEC86D2008C2AEA /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
 		096286432AD9ED5D00B1508F /* OnboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCoordinator.swift; sourceTree = "<group>"; };
 		096286462ADA011600B1508F /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		096286482ADA033000B1508F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			children = (
 				096286462ADA011600B1508F /* CustomButton.swift */,
 				09D738BE2AE1DFF9001B7D63 /* LabelCluster.swift */,
+				0916E7E02AEC843E008C2AEA /* CornerToMask.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 				09D738B62ADF3662001B7D63 /* WelcomeViewModel.swift */,
 				09D738B82ADF369E001B7D63 /* WelcomeModel.swift */,
 				09D738BC2AE1DB25001B7D63 /* WelcomeTableDelegate + DataSource.swift */,
+				0916E7E22AEC86D2008C2AEA /* WelcomeCell.swift */,
 			);
 			path = WelcomeScreen;
 			sourceTree = "<group>";
@@ -233,12 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0916E7E32AEC86D2008C2AEA /* WelcomeCell.swift in Sources */,
 				09A4832C2ADC9DB800DB8933 /* UIViewController.swift in Sources */,
 				09D738B52ADF3650001B7D63 /* WelcomeViewController.swift in Sources */,
 				09BF47AD2ADDED49004995AF /* ModalViewController.swift in Sources */,
 				097E0C942AD8A004001D2012 /* Coordinator.swift in Sources */,
 				096286492ADA033000B1508F /* UIColor.swift in Sources */,
 				09D738BB2ADF3782001B7D63 /* NotificationCenter.swift in Sources */,
+				0916E7E12AEC843E008C2AEA /* CornerToMask.swift in Sources */,
 				097E0C8A2AD89C75001D2012 /* UserDefaults.swift in Sources */,
 				09D738B92ADF369E001B7D63 /* WelcomeModel.swift in Sources */,
 				097E0C8F2AD89F08001D2012 /* OnboardingViewModel.swift in Sources */,

@@ -7,7 +7,7 @@ final class WelcomeTableController: UIResponder, UITableViewDataSource, UITableV
     let type = WelcomeCell.self
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return section == 0 ? 10 : 1
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -18,14 +18,21 @@ final class WelcomeTableController: UIResponder, UITableViewDataSource, UITableV
         tableView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         if indexPath.section == 0{
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-            let test = cell as! WelcomeCell
-            
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! WelcomeCell
+            var hasViewMore = false
+            if indexPath.row == 0 {
+                cell.addCorners(.top)
+                hasViewMore = true
+            }else if indexPath.row == 9 { //TODO: addDataSource
+                cell.addCorners(.bottom)
+                
+            }
 
-            test.configure()
+            cell.configure(withTitle: "aaaa", withTime: "10:30pm", withImage: "bell.fill", isSystemName: true, hasViewMore: hasViewMore)
             
-            return test
+            return cell
         }else{
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier)!
             return cell
         }
@@ -36,91 +43,29 @@ final class WelcomeTableController: UIResponder, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let customPad = UIView()
+        customPad.backgroundColor = .clear
+        
         let label = UILabel()
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
-        label.textColor = .black
+        label.textColor = .ultraDarkPink
         label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.insetsLayoutMarginsFromSafeArea = true
-        return label
-    }
- 
-    func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-        return 50
-    }
-}
-
-class WelcomeCell: UITableViewCell, ViewProtocol {
-    let background: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .ultraDarkPink
-        return view
-    }()
-    
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
-        return label
-    }()
-    
-    lazy var viewMore: UIButton = {
-        let button = UIButton(configuration: .plain())
-        button.tintColor = .white
-        button.setTitle("View More", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
         
-        return button
+        customPad.addSubview(label)
         
-    }()
-    
-    lazy var symbolView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+            label.leadingAnchor.constraint(equalTo: customPad.leadingAnchor, constant: 50),
+            label.topAnchor.constraint(equalTo: customPad.topAnchor, constant: 20)
+        ]
         
-        return imgView
-    }()
-    
-    lazy var timeLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .red
-        label.font = .systemFont(ofSize: 12, weight: .medium)
-        return label
-    }()
-    
-    func configure(withTitle title: String = "", withTime time: String = "", withImage image: String? = nil, isSystemName: Bool = true, hasViewMore: Bool = false){
-        self.backgroundColor = .clear
-        titleLabel.text = time
-        timeLabel.text = time
+        NSLayoutConstraint.activate(constraints)
         
-        setup()
-        
-        if let imageName = image,
-        let image = isSystemName ? UIImage(systemName: imageName) : UIImage(named: imageName) {
-            symbolView.image = image
-        } else {
-            symbolView.removeFromSuperview()
-        }
-        
-        if !hasViewMore {
-            viewMore.removeFromSuperview()
-        }
-        
+        return customPad
     }
-    
-    func addViews() {
-        self.addSubview(background)
-        background.addSubview(titleLabel)
-        background.addSubview(viewMore)
-        background.addSubview(symbolView)
-        background.addSubview(timeLabel)
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 55
     }
-    
-    func configureConstraints() {
-        
-    }
-    
 }

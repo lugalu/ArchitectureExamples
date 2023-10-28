@@ -34,6 +34,9 @@ extension UIColor{
     static var ultraDarkPink: UIColor? {
         return UIColor(named: "UltraDarkPink")
     }
-
+    
+    static var slightPink: UIColor? {
+        return UIColor(named: "SlightPink")
+    }
     
 }
