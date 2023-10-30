@@ -11,6 +11,9 @@ protocol WelcomeViewModelProtocol {
     
 }
 
+protocol WelcomeDataSource{
+    
+}
 
 class WelcomeViewModel: WelcomeViewModelProtocol {
     lazy var welcomeTableController: WelcomeTableController = WelcomeTableController()

@@ -11,31 +11,31 @@ final class WelcomeTableController: UIResponder, UITableViewDataSource, UITableV
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        if indexPath.section == 0{
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! WelcomeCell
-            var hasViewMore = false
-            if indexPath.row == 0 {
-                cell.addCorners(.top)
-                hasViewMore = true
-            }else if indexPath.row == 9 { //TODO: addDataSource
-                cell.addCorners(.bottom)
-                
+        //tableView.contentInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! WelcomeCell
+        var hasViewMore = false
+        var viewMoreAction = UIAction() { _ in }
+        
+        if indexPath.row == 0 {
+            cell.addCorners(.top)
+            hasViewMore = true
+            viewMoreAction = UIAction() { _ in
+                //TODO: add the View here.
             }
-
-            cell.configure(withTitle: "aaaa", withTime: "10:30pm", withImage: "bell.fill", isSystemName: true, hasViewMore: hasViewMore)
+        }else if indexPath.row == 9 { //TODO: addDataSource
+            cell.addCorners(.bottom)
             
-            return cell
-        }else{
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier)!
-            return cell
         }
+
+        cell.configure(withTitle: "aaaa", withTime: "10:30pm", withImage: "bell.fill", isSystemName: true, hasViewMore: hasViewMore, action: viewMoreAction)
+        
+        return cell
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

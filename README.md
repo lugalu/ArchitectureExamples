@@ -5,13 +5,13 @@ Project focused on having a bunch of sample apps implementing different mobile a
 
 Implementend Architetures:
 
-- None
+- MVVM(SwiftUI)
+- MVVM-C(UIKit)
 
 <br>
 Planned architectures:
 
 - MVVM (SwiftUI)
-- MVVM-C (SwiftUI)
 - MVC (UIKit)
 - VIPER (UIKit)
 - VIP (UIKit)
@@ -21,6 +21,6 @@ Planned architectures:
 <br>
 Won't be added:
 
-- None for now
+- MVVM-C (SwiftUI) reason is while I studied this, it seems convoluted and more like a problem searching for a solution. In UIKit is totally reasonable.
 
 

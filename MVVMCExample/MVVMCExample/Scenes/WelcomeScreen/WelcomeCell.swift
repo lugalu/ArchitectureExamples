@@ -45,10 +45,12 @@ class WelcomeCell: UITableViewCell {
         return label
     }()
     
-    func configure(withTitle title: String = "", withTime time: String = "", withImage image: String? = nil, isSystemName: Bool = true, hasViewMore: Bool = false) {
+    func configure(withTitle title: String = "", withTime time: String = "", withImage image: String? = nil, isSystemName: Bool = true, hasViewMore: Bool = false, action: UIAction = UIAction(handler: { _ in }), state: UIControl.Event = .touchUpInside ) {
         self.backgroundColor = .clear
         titleLabel.text = title
         timeLabel.text = time
+        viewMore.addAction(action, for: state)
+        
         
         setup()
         

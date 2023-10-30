@@ -58,11 +58,14 @@ class WelcomeViewController: UIViewController {
     }()
     
     
-    lazy var calendar: UICalendarView = {
-        let calendar = UICalendarView()
+    lazy var calendar: UIDatePicker = {
+        let calendar = UIDatePicker()
         
         calendar.translatesAutoresizingMaskIntoConstraints = false
-        
+        calendar.preferredDatePickerStyle = .compact
+        calendar.datePickerMode = .date
+        calendar.tintColor = .ultraPink
+
         return calendar
     }()
     
@@ -108,7 +111,7 @@ class WelcomeViewController: UIViewController {
         let contentRect: CGRect = scroll.subviews.reduce(into: .zero) { rect, view in
             rect = rect.union(view.frame)
         }
-        scroll.contentSize = CGSize(width: contentRect.width, height: contentRect.height)
+        scroll.contentSize = CGSize(width: contentRect.width, height: contentRect.height - 50)
     }
     
     
@@ -116,7 +119,6 @@ class WelcomeViewController: UIViewController {
         addViews()
         reminders.reloadData()
         configureConstraints()
-        createGradient()
         self.navigationController?.navigationBar.isHidden = true
 
     }
@@ -132,15 +134,6 @@ class WelcomeViewController: UIViewController {
 }
 
 extension WelcomeViewController: ViewProtocol {
-    
-    func createGradient(){
-        let gradient = CAGradientLayer()
-        gradient.colors =  [UIColor.lightDarkPurple!.cgColor,UIColor.lightDarkPurple!.cgColor, UIColor.white.cgColor,UIColor.white.cgColor]
-        gradient.frame = view.bounds
-        gradient.locations = [0, 0.5, 0.75, 1]
-        
-        view.layer.insertSublayer(gradient, at: 0)
-    }
     
     func addViews() {
         view.addSubview(scroll)
@@ -166,8 +159,8 @@ extension WelcomeViewController: ViewProtocol {
         let constraints = [
             scroll.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scroll.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scroll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scroll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scroll.topAnchor.constraint(equalTo: view.topAnchor),
+            scroll.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ]
         
         NSLayoutConstraint.activate(constraints)
@@ -213,7 +206,6 @@ extension WelcomeViewController: ViewProtocol {
     
     private func addCalendarConstraints(){
         let constraints = [
-            calendar.trailingAnchor.constraint(equalTo: scroll.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             calendar.leadingAnchor.constraint(equalTo: scroll.safeAreaLayoutGuide.leadingAnchor, constant: 40),
             calendar.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 40),
         ]
@@ -226,7 +218,7 @@ extension WelcomeViewController: ViewProtocol {
             reminders.trailingAnchor.constraint(equalTo: scroll.safeAreaLayoutGuide.trailingAnchor),
             reminders.leadingAnchor.constraint(equalTo: scroll.safeAreaLayoutGuide.leadingAnchor),
             reminders.topAnchor.constraint(equalTo: calendar.bottomAnchor, constant: 40),
-            reminders.heightAnchor.constraint(greaterThanOrEqualToConstant: reminders.contentSize.height),
+            reminders.heightAnchor.constraint(greaterThanOrEqualToConstant: reminders.contentSize.height + 60),
             reminders.bottomAnchor.constraint(equalTo: scroll.contentLayoutGuide.bottomAnchor)
         ]
         
