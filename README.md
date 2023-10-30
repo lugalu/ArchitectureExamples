@@ -10,6 +10,7 @@ Implementend Architetures:
 
 <br>
 Planned architectures:
+
 - MVC (UIKit)
 - VIPER (UIKit)
 - VIP (UIKit)
