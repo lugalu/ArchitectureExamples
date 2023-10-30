@@ -10,8 +10,6 @@ Implementend Architetures:
 
 <br>
 Planned architectures:
-
-- MVVM (SwiftUI)
 - MVC (UIKit)
 - VIPER (UIKit)
 - VIP (UIKit)
